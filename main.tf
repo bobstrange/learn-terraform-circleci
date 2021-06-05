@@ -6,7 +6,14 @@ terraform {
     }
   }
   required_version = "~> 0.14"
+  backend "s3" {
+    bucket = "93fcab1d-64e6-6c2e-77be-f4a6d9ec3feb-backend"
+    key    = "terraform-tfstate/example/terraform.tfstate"
+    region = "us-east-1"
+  }
 }
+
+
 
 provider "aws" {
   region = var.region
